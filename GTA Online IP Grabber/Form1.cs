@@ -6,7 +6,8 @@ using PcapDotNet.Packets.Transport;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Threading;
-
+using LiteDB;
+using System.Diagnostics;
 
 namespace GTA_Online_IP_Grabber
 {
@@ -17,6 +18,19 @@ namespace GTA_Online_IP_Grabber
         {
             Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
+        }
+
+        public class IP_Address
+        {
+            public string IP { get; set; }
+            public string Country { get; set; }
+            public string City { get; set; }
+
+            public string State { get; set; }
+
+            public string ZipCode { get; set; }
+
+            public string TimeZone { get; set; }
         }
 
         public List<String> getGeoInfo(String ip2Geo)
@@ -76,17 +90,46 @@ namespace GTA_Online_IP_Grabber
             
             IpV4Datagram ip = packet.Ethernet.IpV4;
             UdpDatagram udp = ip.Udp;
+            IP_Address customer;
 
             if (!ipAddresses.Contains(ip.Destination.ToString()))
             {
                 ipAddresses.Add(ip.Destination.ToString());
-                String[] rows = { ip.Destination.ToString(), getGeoInfo(ip.Destination.ToString())[0],
+                String[] rows = { ip.Destination.ToString(), 
+                    getGeoInfo(ip.Destination.ToString())[0],
                     getGeoInfo(ip.Destination.ToString())[1], 
                     getGeoInfo(ip.Destination.ToString())[2],
                     getGeoInfo(ip.Destination.ToString())[3],
                     getGeoInfo(ip.Destination.ToString())[4]
                 };
-                
+
+                if (checkBox_store_In_DB.Checked)
+                {
+                    using (var db = new LiteDatabase(@"IP_Addresses.db"))
+                    {
+
+                        var col = db.GetCollection<IP_Address>("IP_Address");
+
+
+
+
+                        customer = new IP_Address
+                        {
+                            IP = ip.Destination.ToString(),
+                            Country = getGeoInfo(ip.Destination.ToString())[0],
+                            City = getGeoInfo(ip.Destination.ToString())[1],
+                            State = getGeoInfo(ip.Destination.ToString())[2],
+                            ZipCode = getGeoInfo(ip.Destination.ToString())[3],
+                            TimeZone = getGeoInfo(ip.Destination.ToString())[4]
+
+                        };
+                        col.Insert(customer);
+
+
+
+                    }
+                }
+
                 ListViewItem item = new ListViewItem(rows);
                 listView1.Items.Add(item);
             }
@@ -160,7 +203,8 @@ namespace GTA_Online_IP_Grabber
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            label_Status.Text = "Running";
+            label_Status.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006400");
             Thread thread = new Thread(getUDPPackets) { IsBackground = true };
             thread.Start();
 
@@ -169,6 +213,32 @@ namespace GTA_Online_IP_Grabber
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadIPDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+        }
+
+        private void developedByHenryRichardJToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/henry-richard7");
+        }
+
+        private void paypalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.paypal.com/paypalme/henryrics");
+        }
+
+        private void youtubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.youtube.com/channel/UCVGasc5jr45eZUpZNHvbtWQ");
         }
     }
 }

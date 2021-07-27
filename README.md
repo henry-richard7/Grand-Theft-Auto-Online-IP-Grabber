@@ -5,6 +5,10 @@
 * IP2Location
 * Newtonsoft.Json
 * PcapDotNet
+* LiteDB
+
+# What's New
+* Now you can store IP Addresses in Database.
 
 # Required Drivers
 > WinPcap - [Download](https://www.winpcap.org/)
