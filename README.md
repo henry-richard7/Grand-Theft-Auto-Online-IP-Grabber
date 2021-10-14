@@ -1,3 +1,6 @@
+# Badges
+![Downloads](https://img.shields.io/github/downloads/henry-richard7/Grand-Theft-Auto-Online-IP-Grabber/total.svg?style=for-the-badge&logo=github)
+
 # Grand Theft Auto Online IP Grabber
  A C# program that grabs ip address of players in a public lobby of GTA Online.
  
