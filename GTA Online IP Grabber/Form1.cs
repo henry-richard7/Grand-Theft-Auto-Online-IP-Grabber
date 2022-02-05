@@ -137,18 +137,9 @@ namespace GTA_Online_IP_Grabber
             
             
         }
-        private void DevicePrint(IPacketDevice device)
-        {
-            
-            foreach (DeviceAddress address in device.Addresses)
-            {
-
-
-                
-                if (device.Description != null)
-                    comboBox1.Items.Add(device.Description);
-            }
-            
+        private void DevicePrint(LivePacketDevice device)
+        {            
+            comboBox1.Items.Add(device.Description);            
         }
         
         public IList<LivePacketDevice> allDevices = LivePacketDevice.AllLocalMachine;
