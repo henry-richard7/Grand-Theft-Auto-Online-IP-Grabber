@@ -14,7 +14,7 @@
 * Now you can store IP Addresses in Database.
 
 # Required Drivers
-> WinPcap - [Download](https://www.winpcap.org/)
+> NPcap - [Download](https://npcap.com/)
 
 # Screenshot
 ![GTA Online IP Grabber](https://user-images.githubusercontent.com/68910039/111960891-549c4180-8b16-11eb-879c-a8eb154a4124.png)
