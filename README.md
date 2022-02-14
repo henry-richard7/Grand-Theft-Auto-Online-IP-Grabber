@@ -20,7 +20,7 @@
 ![GTA Online IP Grabber](https://user-images.githubusercontent.com/68910039/111960891-549c4180-8b16-11eb-879c-a8eb154a4124.png)
 
 # How To Use
-* Download WinPcan from [Download](https://www.winpcap.org/)
+* Download NPcap from [Download](https://npcap.com/)
 * Download the latest release from [Here](https://github.com/henry-richard7/Grand-Theft-Auto-Online-IP-Grabber/releases)
 * Extract it and open the program.
 * Select the interface to capture and click start.
