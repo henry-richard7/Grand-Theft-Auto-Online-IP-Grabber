@@ -32,7 +32,7 @@ namespace GTA_Online_IP_Grabber
 
             public string TimeZone { get; set; }
         }
-
+        
         public List<String> getGeoInfo(String ip2Geo)
         {
 
@@ -54,8 +54,8 @@ namespace GTA_Online_IP_Grabber
                     ipInfos.Add(oIPResult.TimeZone);
 
                     return ipInfos;
-
                 }
+
                 else
                 {
                     List<String> errorLists = new List<string>();
@@ -110,9 +110,6 @@ namespace GTA_Online_IP_Grabber
 
                         var col = db.GetCollection<IP_Address>("IP_Address");
 
-
-
-
                         customer = new IP_Address
                         {
                             IP = ip.Destination.ToString(),
@@ -123,23 +120,20 @@ namespace GTA_Online_IP_Grabber
                             TimeZone = getGeoInfo(ip.Destination.ToString())[4]
 
                         };
+
                         col.Insert(customer);
-
-
-
                     }
                 }
 
                 ListViewItem item = new ListViewItem(rows);
                 listView1.Items.Add(item);
-            }
-
-            
+            }           
             
         }
         private void DevicePrint(LivePacketDevice device)
-        {            
-            comboBox1.Items.Add(device.Description);            
+        {    
+          comboBox1.Items.Add(device.Description);
+            
         }
         
         public IList<LivePacketDevice> allDevices = LivePacketDevice.AllLocalMachine;
@@ -153,43 +147,34 @@ namespace GTA_Online_IP_Grabber
             }
 
         }
+        PacketCommunicator communicator;
+        
         
             public void getUDPPackets()
-        {
-            
+            {          
 
             if (allDevices.Count == 0)
             {
-                Console.WriteLine("No interfaces found! Make sure WinPcap is installed.");
+                MessageBox.Show("No interfaces found! Make sure NPcap is installed.");
                 return;
             }
-
             
-
             PacketDevice selectedDevice = allDevices[comboBox1.SelectedIndex];
 
-            using (PacketCommunicator communicator =
-                selectedDevice.Open(65536,
-                                PacketDeviceOpenAttributes.Promiscuous, 
-                                1000))
+            communicator = selectedDevice.Open(65536, PacketDeviceOpenAttributes.Promiscuous, 1000);
+
+            BerkeleyPacketFilter filter = communicator.CreateFilter("udp port 6672");
+                    
+            communicator.SetFilter(filter);
+            try
             {
-                using (BerkeleyPacketFilter filter = communicator.CreateFilter("udp port 6672"))
-                {
-                    
-                    communicator.SetFilter(filter);
-                }
-
-
-
-                try {
-                    communicator.ReceivePackets(0, PacketHandler);
-                }
-                catch
-                {
-                    
-                }
-                
+               
+                communicator.ReceivePackets(0, PacketHandler);
             }
+            catch
+            {
+
+            }  
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -230,6 +215,19 @@ namespace GTA_Online_IP_Grabber
         private void youtubeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.youtube.com/channel/UCVGasc5jr45eZUpZNHvbtWQ");
+        }
+
+        private void buttonClearList_Click(object sender, EventArgs e)
+        {
+            ipAddresses.Clear();
+            listView1.Items.Clear();
+        }
+
+        private void buttonStopCapture_Click(object sender, EventArgs e)
+        {
+            communicator.Break();
+            label_Status.Text = "Not Running";
+            label_Status.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FF0000");
         }
     }
 }

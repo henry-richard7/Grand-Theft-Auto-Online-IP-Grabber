@@ -95,12 +95,12 @@ C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\bin\x86\
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\bin\x86\Debug\System.Memory.xml
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\bin\x86\Debug\System.Numerics.Vectors.xml
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.csproj.AssemblyReference.cache
+C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.csproj.SuggestedBindingRedirects.cache
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA_Online_IP_Grabber.Form1.resources
+C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA_Online_IP_Grabber.Form2.resources
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA_Online_IP_Grabber.Properties.Resources.resources
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.csproj.GenerateResource.cache
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.csproj.CoreCompileInputs.cache
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.csproj.CopyComplete
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.exe
 C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA Online IP Grabber.pdb
-C:\Users\Henry\source\repos\GTA Online IP Grabber\GTA Online IP Grabber\obj\x86\Debug\GTA_Online_IP_Grabber.Form2.resources
