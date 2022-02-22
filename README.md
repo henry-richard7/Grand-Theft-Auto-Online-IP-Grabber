@@ -26,7 +26,7 @@ A C# program that grabs ip address of players in a public lobby of GTA Online.
 
 # Screenshot
 
-![GTA Online IP Grabber](https://user-images.githubusercontent.com/68910039/111960891-549c4180-8b16-11eb-879c-a8eb154a4124.png)
+![GTA Online IP Grabber](https://user-images.githubusercontent.com/68910039/155161201-46c116dd-e78d-4c9b-83c7-3daa582c3b95.png)
 
 # How To Use
 
