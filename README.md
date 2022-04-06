@@ -52,9 +52,6 @@ If you like my projects then consider making a small donation by clicking below 
 <br/>
 [![](https://img.shields.io/badge/Donate-Paypal-blue?style=for-the-badge&logo=paypal)](https://www.paypal.com/paypalme/henryrics)
 
-## Litecoin Address [LTC]
-
-MNnZSQaTjW8guxdFsSBaWLzuRnhoaDuner
 
 # Copyrights © [Henry Richard J](https://github.com/henry-richard7)
 
