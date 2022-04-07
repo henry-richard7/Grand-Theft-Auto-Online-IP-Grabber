@@ -36,6 +36,9 @@ A C# program that grabs ip address of players in a public lobby of GTA Online.
 - Select the interface to capture and click start.
 - Launch the game.
 
+# Note
+This app does not show player names.
+
 # My Youtube Channel
 
 [![](https://img.shields.io/badge/Subscribe-red?style=for-the-badge&logo=YouTube)](https://www.youtube.com/channel/UCVGasc5jr45eZUpZNHvbtWQ)
